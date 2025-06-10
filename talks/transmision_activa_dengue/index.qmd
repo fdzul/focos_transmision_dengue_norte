@@ -100,3 +100,74 @@ kableExtra::kbl(x, align = "c") |>
 
 ```
 
+
+## [Algoritmo de las Cadenas de Transmisión]{.r-fit-text style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+
+::: {.columns}
+
+::: {.column width="50%"}
+1. Bajar las bases de datos del **[SINAVE](https://www.sinave.gob.mx/)**.
+&nbsp;
+
+2. Geocodificar las bases.
+&nbsp;
+
+3. Generar la base (onset y coordenadas).
+&nbsp;
+
+4. Aplicar el [**Knox test**]().
+&nbsp;
+
+5. Definir los [**Space-Time link**]().
+&nbsp;
+
+6. Visualizar [**Space-Time link**]().
+:::
+
+::: {.column width="50%"}
+
+```{r, dpi=300,echo=FALSE, fig.align ="center", out.width = "100%"}
+DiagrammeR::grViz("digraph {
+
+  # graph definitions
+  graph [layout = dot, rankdir = TB]
+  
+  # node definitions
+  node [shape = rectangle, style = filled, color = grey] 
+  
+  
+  
+  # edge definition
+  edge [color = grey, arrowhead = normal, arrowtail = dot]
+  
+  # flowchart for sinave
+  sinave [label = 'SINAVE',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  denv [label = 'Bases de DENV',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+  geocode [label = 'Geocodificación',  fillcolor = '#0F9D58', color = 'white', fontcolor = 'white']
+ 
+  
+  # knox
+  base [label = 'Genera la base (onset-coordenadas)',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+  
+  knox [label = 'Knox test',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+  
+  time_link [label = 'Space-Time Link',  fillcolor =  'orange', color = 'white', fontcolor = 'black']
+  
+   vis [label = 'Visualización',  fillcolor =  'DodgerBlue', color = 'white', fontcolor = 'white'] 
+  
+  # edge definitions with the node IDs
+  sinave -> denv -> geocode -> base -> knox -> time_link -> vis
+  
+   
+ 
+  }", 
+  height = 550)
+
+```
+
+:::
+
+::::

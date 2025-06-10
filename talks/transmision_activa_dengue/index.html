@@ -124,6 +124,10 @@
   </style>
   <script src="index_files/libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="index_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+  <script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <script src="index_files/libs/viz-1.8.2/viz.js"></script>
+  <link href="index_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+  <script src="index_files/libs/grViz-binding-1.0.11/grViz.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -237,6 +241,28 @@ Time
 </table>
 </div>
 </div>
+</section>
+<section id="algoritmo-de-las-cadenas-de-transmisión" class="slide level2">
+<h2><span class="r-fit-text" style="color:#003300;">Algoritmo de las Cadenas de Transmisión</span></h2>
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li><p>Bajar las bases de datos del <strong><a href="https://www.sinave.gob.mx/">SINAVE</a></strong>. &nbsp;</p></li>
+<li><p>Geocodificar las bases. &nbsp;</p></li>
+<li><p>Generar la base (onset y coordenadas). &nbsp;</p></li>
+<li><p>Aplicar el <a href=""><strong>Knox test</strong></a>. &nbsp;</p></li>
+<li><p>Definir los <a href=""><strong>Space-Time link</strong></a>. &nbsp;</p></li>
+<li><p>Visualizar <a href=""><strong>Space-Time link</strong></a>.</p></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="htmlwidget-32ba29eff55c2d74de12" style="width:100%;height:550px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-32ba29eff55c2d74de12">{"x":{"diagram":"digraph {\n\n  # graph definitions\n  graph [layout = dot, rankdir = TB]\n  \n  # node definitions\n  node [shape = rectangle, style = filled, color = grey] \n  \n  \n  \n  # edge definition\n  edge [color = grey, arrowhead = normal, arrowtail = dot]\n  \n  # flowchart for sinave\n  sinave [label = \"SINAVE\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  denv [label = \"Bases de DENV\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n  geocode [label = \"Geocodificación\",  fillcolor = \"#0F9D58\", color = \"white\", fontcolor = \"white\"]\n \n  \n  # knox\n  base [label = \"Genera la base (onset-coordenadas)\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n  \n  knox [label = \"Knox test\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n  \n  time_link [label = \"Space-Time Link\",  fillcolor =  \"orange\", color = \"white\", fontcolor = \"black\"]\n  \n   vis [label = \"Visualización\",  fillcolor =  \"DodgerBlue\", color = \"white\", fontcolor = \"white\"] \n  \n  # edge definitions with the node IDs\n  sinave -> denv -> geocode -> base -> knox -> time_link -> vis\n  \n   \n \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div></div>
 
 </section>
     </div>
