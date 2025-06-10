@@ -1,0 +1,102 @@
+---
+format: 
+  revealjs:
+    code-block-bg: true
+    code-block-background: true
+    code-copy: true
+    chalkboard: true
+    highlight-style: github
+    slide-number: c/t
+    logo: logo_cenaprece.jpeg
+    footer: "[github.com/fdzul](https://github.com/fdzul)"
+    center-title-slide: true
+---
+
+<h2>Identificación de los Focos de Transmisión Activa <br>de las Arbovirosis</h2>
+
+<h2>
+
+</h2>
+
+<hr>
+
+<br>
+
+<h3>Dr. Felipe Dzul Manzanilla</h3>
+
+<h3>Dr. Fabián Correa-Morales</h3>
+
+<h3>
+
+</h3>
+
+<br>
+
+<h4>Date: 2025-06-09</h4>
+
+<h4>Update: 2025-06-09</h4>
+
+<br>
+
+<h4>
+
+![](heatmap_guadalajara.png){.absolute top="270" left="650" width="450"}
+
+## [Temario]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+ - Cadenas de Transmisión 
+ 
+ - Algoritmo de las Cadenas de Transmisión
+ 
+ - Cadenas de Transmisión en R
+ 
+ 
+ - Mapas de Calor 
+ 
+ - Algoritmo de los mapas de Calor
+ 
+ - Mapas de Calor en R
+ 
+ 
+## [Cadenas de Transmisión]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+$$\color{Orange}{Knox} = \frac{1}{2} \sum_{i=1}^{n}  \sum_{i=1}^{n} \color{Green}{S_{ij}} \color{red}{T_{ij}}$$
+donde:
+
+$\color{Green}{S_{ij}}$ = 1 si el caso $( i\ne j)$ & la $d_{ij} \le \delta^s$ (metros = 400), de lo contrario 0.
+
+$\color{red}{T_{ij}}$ = 1 si el caso $( i\ne j)$ & la $d_{ij} \le \delta^t$ (días = 20), de los contrario 0.
+
+
+## [Cadenas de Transmisión]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+$$\color{Orange}{Knox} = \frac{1}{2} \sum_{i=1}^{n}  \sum_{i=1}^{n} \color{Green}{S_{ij}} \color{red}{T_{ij}}$$
+
+**Hipotesis Nula** las distancias temporales entre pares de casos son independientes de las distancias espaciales.
+
+**Hipotesis Alternativa** existe dependencia de las distancias espaciales y temporales entre los pares de casos (existen cadenas de transmisión).
+
+
+## [Cadenas de Transmisión]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+$$\color{Orange}{Knox} = \frac{1}{2} \sum_{i=1}^{n}  \sum_{i=1}^{n} \color{Green}{S_{ij}} \color{red}{T_{ij}}$$
+```{r echo=FALSE,dpi=300,warning=FALSE, fig.align ="center", out.width = "100%"}
+x <- data.frame("Close" = c("01", "03", "S3"),
+                "Not close" = c("02", "04", "S4"),
+                "Total" = c("S1", "S2", "N"))
+row.names(x) <- c("Close in Space", "Not close in Space", "Total")
+kableExtra::kbl(x, align = "c") |>
+    kableExtra::kable_paper("striped", full_width = F) |>
+    kableExtra::add_header_above(c(" " = 1, "Time" = 3)) |>
+    kableExtra::pack_rows("",3, 3)
+
+```
+
